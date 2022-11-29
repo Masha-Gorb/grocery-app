@@ -1,0 +1,21 @@
+.container {
+    background-color: #e7e7e7;
+    padding: 0 calc(50% - 590px);
+    display: grid;
+    justify-content: center;
+}
+
+.productsContainer {
+    display: grid;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    /*background-color: rgba(105, 158, 252, 0.49);*/
+    grid-template-rows: 250px;
+    grid-template-columns: 210px 200px;
+} @media (max-width: 768px) {
+    .productsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

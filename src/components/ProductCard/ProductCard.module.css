@@ -1,0 +1,14 @@
+.container {
+    text-align: center;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.img {
+    height: 100px;
+    width: 100px;
+    object-fit: cover
+}
