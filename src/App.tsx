@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {Header} from "./components/Header/Header";
 import {MainPage} from "./components/MainPage/MainPage";
+import s from "./components/MainPage/MainPage.module.css";
 
 function App() {
   let state = [
@@ -167,10 +168,54 @@ function App() {
     }
   ]
 
+  let [filter, setFilter] = useState([''])
+  let [st, setSt] = useState(state)
+
+  const filterState = (arr:any, f:any) => {
+    let newArr = []
+    for (let i = 0; i < arr.length; i++) {
+      let arrCategories = arr[i].categories
+      for (let j = 0; j < arrCategories.length; j++) {
+        for (let k = 0; k < f.length; k++) {
+          if(f[k] === arrCategories[j]) {
+            newArr.push(arr[i])
+          }
+        }
+      }
+    }
+    // @ts-ignore
+    let newState = [...new Set(newArr)]
+    console.log(newState)
+    setSt(newState)
+    return newState
+  }
+
+  const removeFilterHandler = () => {
+    setFilter([])
+    setSt(state)
+  }
+
+
   return (
     <div className="App">
       <Header/>
-      <MainPage state={state}/>
+
+      <div className='buttonGroup'>
+        <button className={s.button} onClick={() => setFilter(['grocery', ...filter])}>бакалея</button>
+        <button className={s.button} onClick={() => setFilter(['vegetables', ...filter])}>овощи и фрукты</button>
+        <button className={s.button} onClick={() => setFilter(['meat', ...filter])}>мясо и птица</button>
+        <button className={s.button} onClick={() => setFilter(['diary', ...filter]) }>молочное</button>
+        <br/>
+        <button className={s.button} onClick={() => setFilter(['sweets', ...filter]) }>сладости</button>
+        <button className={s.button} onClick={() => setFilter(['frozen', ...filter]) }>заморозка</button>
+        <button className={s.button} onClick={() => setFilter(['eggs', ...filter])}>яйца</button>
+        <br/>
+        <button onClick={() => filterState(state, filter)}>отфильтровать</button>
+        <button onClick={() => alert(filter)}>показать фильтры</button>
+        <button onClick={() => removeFilterHandler()}>сбросить фильтры</button>
+      </div>
+
+      <MainPage state={st}/>
     </div>
   );
 }

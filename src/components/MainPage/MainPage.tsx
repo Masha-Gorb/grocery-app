@@ -24,7 +24,9 @@ export const MainPage = (props: ProductsType) => {
         })}
       </div>
 
-      <Pagination count={10} shape="rounded" />
+      <div className={s.pagination}>
+        <Pagination count={10} shape="rounded" variant="outlined" color="primary" />
+      </div>
 
     </div>
   )
