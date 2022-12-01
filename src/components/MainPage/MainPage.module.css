@@ -19,6 +19,9 @@
 .button:hover {
     background-color: rgba(161, 230, 255, 0.48);
 }
+.button:active {
+    background-color: rgba(161, 230, 255, 0.48);
+}
 
 
 .productsContainer {

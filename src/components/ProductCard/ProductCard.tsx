@@ -15,11 +15,11 @@ export const ProductCard = (props: ProductType) => {
   return (
     <div className={s.container}>
       <h4>{props.title}</h4>
-      <img className={s.img} src={props.img} alt='картинка хлеба'/>
+      <img className={s.img} src={props.img} alt='картинка продукта'/>
       <br/>
       <span>{'вес ' + props.weight}</span>
       <br/>
-      <span>{'цена ' + props.price}</span>
+      <span>{'цена ' + props.price + ' руб'}</span>
       <br/>
       <Button onClick={handleOpen}>Подробнее</Button>
 
@@ -33,9 +33,22 @@ export const ProductCard = (props: ProductType) => {
             <h3>{props.title}</h3>
             <img className={s.modalBoxImg} src={props.img} alt={'картинка продукта'}/>
             <br/>
-            <span>{'Описание: ' + props.description}</span>
-            <br/>
-            <span>{'Цена ' + props.price + ' руб.'}</span>
+            <div className={s.modalInfoBox}>
+              <span>{'Описание: ' + props.description}</span>
+              <br/>
+              <span>{'Цена ' + props.price + ' руб.'}</span>
+              <hr/>
+              <span>Пищевая ценность на 100гр</span>
+              <br/>
+              <span>{'Белки ' + props.calories.protein + ' гр'}</span>
+              <br/>
+              <span>{'Углеводы ' + props.calories.carbohydrates + ' гр'}</span>
+              <br/>
+              <span>{'Жиры ' + props.calories.fat + ' гр'}</span>
+              <br/>
+              <span>{'Ккал ' + props.calories.amount}</span>
+            </div>
+
           </div>
         </Box>
       </Modal>
