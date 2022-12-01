@@ -35,6 +35,10 @@
 .commandButton:hover {
     background-color: rgba(221, 161, 255, 0.54);
 }
+/*.commandButton:disabled {*/
+/*    background-color: rgba(221, 161, 255, 0.54);*/
+/*}*/
+
 
 .productsContainer {
     display: grid;

@@ -32,7 +32,7 @@ export const MainPage = (props: ProductsType) => {
             calories={m.calories}
             title={m.title}
             price={m.price}
-            weight={m.weight}
+            weight={m.weight>1000 ? m.weight/1000: m.weight}
             img={m.img}
           />
         })}
@@ -44,7 +44,7 @@ export const MainPage = (props: ProductsType) => {
                     shape="rounded"
                     variant="outlined"
                     color="primary"
-                    onChange={(_, num) => setPage(num)}        />
+                    onChange={(_, num) => setPage(num)}/>
       </div>
 
     </div>
