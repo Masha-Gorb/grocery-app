@@ -3,13 +3,27 @@ import s from './MainPage.module.css'
 import {ProductCard} from "../ProductCard/ProductCard";
 import {ProductsType} from "../../types";
 import {Pagination} from "@mui/material";
+import {usePagination} from "../../hooks/usePagination";
 
 export const MainPage = (props: ProductsType) => {
+
+  const {
+    firstContentIndex,
+    lastContentIndex,
+    page,
+    setPage,
+    totalPages,
+  } = usePagination({
+    contentPerPage: 4,
+    count: props.state.length,
+  });
 
   return (
     <div className={s.container}>
       <div className={s.productsContainer}>
-        {props.state.map(m => {
+        {props.state
+          .slice(firstContentIndex, lastContentIndex)
+          .map(m => {
           return <ProductCard
             createdAt={m.createdAt}
             id={m.id}
@@ -25,7 +39,12 @@ export const MainPage = (props: ProductsType) => {
       </div>
 
       <div className={s.pagination}>
-        <Pagination count={10} shape="rounded" variant="outlined" color="primary" />
+        <Pagination count={totalPages}
+                    page={page}
+                    shape="rounded"
+                    variant="outlined"
+                    color="primary"
+                    onChange={(_, num) => setPage(num)}        />
       </div>
 
     </div>

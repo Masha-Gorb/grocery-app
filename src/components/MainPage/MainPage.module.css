@@ -3,6 +3,7 @@
     padding: 0 calc(50% - 590px);
     display: grid;
     justify-content: center;
+    height: 1000px;
 }
 
 .buttonsContainer {
@@ -19,10 +20,21 @@
 .button:hover {
     background-color: rgba(161, 230, 255, 0.48);
 }
-.button:active {
+.buttonActive {
+    border-radius: 10px;
+    border: 2px solid transparent;
+    margin: 5px 5px 5px 5px;
     background-color: rgba(161, 230, 255, 0.48);
 }
 
+.commandButton {
+    border: 2px solid transparent;
+    margin: 5px 5px 5px 5px;
+    background-color: white;
+}
+.commandButton:hover {
+    background-color: rgba(221, 161, 255, 0.54);
+}
 
 .productsContainer {
     display: grid;
@@ -41,5 +53,5 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 400px;
 }

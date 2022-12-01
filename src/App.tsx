@@ -23,14 +23,14 @@ function App() {
       let arrCategories = arr[i].categories
       for (let j = 0; j < arrCategories.length; j++) {
         for (let k = 0; k < f.length; k++) {
-          if(f[k] === arrCategories[j]) {
+          if (f[k] === arrCategories[j]) {
             newArr.push(arr[i])
           }
         }
       }
     }
 
-    let newState  = newArr.filter((item, i, ar) => ar.indexOf(item) === i)
+    let newState = newArr.filter((item, i, ar) => ar.indexOf(item) === i)
     setProducts(newState)
     return newState
   }
@@ -46,18 +46,25 @@ function App() {
       <Header/>
 
       <div className='buttonGroup'>
-        <button className={s.button} onClick={() => setFilter(['grocery', ...filter])}>бакалея</button>
-        <button className={s.button} onClick={() => setFilter(['vegetables', ...filter])}>овощи и фрукты</button>
-        <button className={s.button} onClick={() => setFilter(['meat', ...filter])}>мясо и птица</button>
-        <button className={s.button} onClick={() => setFilter(['dairy', ...filter]) }>молочное</button>
+        <button className={filter.includes('grocery') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['grocery', ...filter])}>бакалея
+        </button>
+        <button className={filter.includes('vegetables') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['vegetables', ...filter])}>овощи и фрукты</button>
+        <button className={filter.includes('meat') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['meat', ...filter])}>мясо и птица</button>
+        <button className={filter.includes('dairy') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['dairy', ...filter])}>молочное</button>
         <br/>
-        <button className={s.button} onClick={() => setFilter(['sweets', ...filter]) }>сладости</button>
-        <button className={s.button} onClick={() => setFilter(['frozen', ...filter]) }>заморозка</button>
-        <button className={s.button} onClick={() => setFilter(['eggs', ...filter])}>яйца</button>
+        <button className={filter.includes('sweets') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['sweets', ...filter])}>сладости</button>
+        <button className={filter.includes('frozen') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['frozen', ...filter])}>заморозка</button>
+        <button className={filter.includes('eggs') ? s.buttonActive : s.button}
+                onClick={() => setFilter(['eggs', ...filter])}>яйца</button>
         <br/>
-        <button onClick={() => filterState(state, filter)}>отфильтровать</button>
-        <button onClick={() => alert(filter)}>показать фильтры</button>
-        <button onClick={() => removeFilterHandler()}>сбросить фильтры</button>
+        <button className={s.commandButton} onClick={() => filterState(state, filter)}>отфильтровать</button>
+        <button className={s.commandButton} onClick={() => removeFilterHandler()}>сбросить фильтры</button>
       </div>
 
       <MainPage state={products}/>
