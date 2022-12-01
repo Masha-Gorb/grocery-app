@@ -49,7 +49,7 @@ function App() {
         <button className={s.button} onClick={() => setFilter(['grocery', ...filter])}>бакалея</button>
         <button className={s.button} onClick={() => setFilter(['vegetables', ...filter])}>овощи и фрукты</button>
         <button className={s.button} onClick={() => setFilter(['meat', ...filter])}>мясо и птица</button>
-        <button className={s.button} onClick={() => setFilter(['diary', ...filter]) }>молочное</button>
+        <button className={s.button} onClick={() => setFilter(['dairy', ...filter]) }>молочное</button>
         <br/>
         <button className={s.button} onClick={() => setFilter(['sweets', ...filter]) }>сладости</button>
         <button className={s.button} onClick={() => setFilter(['frozen', ...filter]) }>заморозка</button>
