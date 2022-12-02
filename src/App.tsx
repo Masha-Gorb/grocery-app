@@ -71,6 +71,7 @@ function App() {
         <button disabled={disabled} className={s.commandButton} onClick={() => removeFilterHandler()}>сбросить фильтры</button>
       </div>
 
+
       <MainPage state={products}/>
     </div>
   );
