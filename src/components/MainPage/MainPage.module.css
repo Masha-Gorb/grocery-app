@@ -1,61 +1,77 @@
 .container {
-    background-color: #e7e7e7;
-    padding: 0 calc(50% - 590px);
-    display: grid;
-    justify-content: center;
-    height: 1000px;
+  background-color: #e7e7e7;
+  padding: 0 calc(50% - 590px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*height: 1000px;*/
+  height: auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-rows: 93px 1fr;
 }
 
 .buttonsContainer {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .button {
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    margin: 5px 5px 5px 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  margin: 5px 5px 5px 5px;
 }
 
 .button:hover {
-    background-color: rgba(161, 230, 255, 0.48);
+  background-color: rgba(161, 230, 255, 0.48);
 }
+
 .buttonActive {
-    border-radius: 10px;
-    border: 2px solid transparent;
-    margin: 5px 5px 5px 5px;
-    background-color: rgba(161, 230, 255, 0.48);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  margin: 5px 5px 5px 5px;
+  background-color: rgba(161, 230, 255, 0.48);
 }
 
 .commandButton {
-    border: 2px solid transparent;
-    margin: 5px 5px 5px 5px;
-    background-color: white;
+  border: 2px solid transparent;
+  margin: 5px 5px 5px 5px;
+  background-color: white;
 }
+
 .commandButton:hover {
-    background-color: rgba(221, 161, 255, 0.54);
+  background-color: rgba(221, 161, 255, 0.54);
 }
+
 /*.commandButton:disabled {*/
 /*    background-color: rgba(221, 161, 255, 0.54);*/
 /*}*/
 
 
 .productsContainer {
-    display: grid;
-    margin-top: 20px;
-    grid-template-rows: 260px;
-    grid-template-columns: 260px 200px;
-} @media (max-width: 768px) {
-    .productsContainer {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  display: grid;
+  margin-top: 20px;
+  grid-template-rows: 250px;
+  /*колонки не ровные, вылезает правый столбец из сетки*/
+  /*grid-template-columns: 260px 200px;*/
+  grid-template-columns: 250px 250px;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .productsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
 }

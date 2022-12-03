@@ -3,23 +3,23 @@ import s from './ProductCard.module.css'
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import {ProductType} from "../../types";
+import {ProductType, ProductTypeWithM} from "../../types";
+// для примера
+const {REACT_APP_URL} = process.env
+export const ProductCard = (props: ProductTypeWithM) => {
 
-
-export const ProductCard = (props: ProductType) => {
-
+  const {img, calories, description, weightWithMeasure:{weight,measure}, price, title} = props
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   return (
     <div className={s.container}>
-      <h4>{props.title}</h4>
-      <img className={s.img} src={props.img} alt='картинка продукта'/>
+      <h4>{title}</h4>
+      <img className={s.img} src={img} alt='картинка продукта'/>
       <br/>
-      <span>{'вес ' + props.weight}</span>
+      <span>вес {weight} {measure}</span>
       <br/>
-      <span>{'цена ' + props.price + ' руб'}</span>
+      <span>{'цена ' + price + ' руб'}</span>
       <br/>
       <Button onClick={handleOpen}>Подробнее</Button>
 
@@ -30,23 +30,20 @@ export const ProductCard = (props: ProductType) => {
       >
         <Box className={s.modalBox}>
           <div className={s.modalBoxContainer}>
-            <h3>{props.title}</h3>
-            <img className={s.modalBoxImg} src={props.img} alt={'картинка продукта'}/>
+            <h3>{title}</h3>
+            <img className={s.modalBoxImg} src={`${REACT_APP_URL}/${img}`} alt={'картинка продукта'}/>
             <br/>
             <div className={s.modalInfoBox}>
-              <span>{'Описание: ' + props.description}</span>
-              <br/>
-              <span>{'Цена ' + props.price + ' руб.'}</span>
+              <p>{'Описание: ' + description}</p>
+              {/* <span>{'Цена ' + price + ' руб.'}</span> */}
+              {/* Сильно мудрено с конкатенацией и span вместо P */}
+              <p>Цена {price} руб.</p>
               <hr/>
-              <span>Пищевая ценность на 100гр</span>
-              <br/>
-              <span>{'Белки ' + props.calories.protein + ' гр'}</span>
-              <br/>
-              <span>{'Углеводы ' + props.calories.carbohydrates + ' гр'}</span>
-              <br/>
-              <span>{'Жиры ' + props.calories.fat + ' гр'}</span>
-              <br/>
-              <span>{'Ккал ' + props.calories.amount}</span>
+              <p>Пищевая ценность на 100гр</p>
+              <p>{'Белки ' + calories.protein + ' гр'}</p>
+              <p>{'Углеводы ' + calories.carbohydrates + ' гр'}</p>
+              <p>{'Жиры ' + calories.fat + ' гр'}</p>
+              <p>{'Ккал ' + calories.amount}</p>
             </div>
 
           </div>
