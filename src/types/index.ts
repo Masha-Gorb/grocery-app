@@ -14,6 +14,21 @@ export type ProductType = {
   calories: CaloriesType
 }
 
+export type ProductTypeWithM = {
+  createdAt: string,
+  id: string,
+  categories: CategoriesType[],
+  price: number,
+  img: string,
+  description: string,
+  title: string,
+  weightWithMeasure:{
+    weight:number,
+    measure:string
+  }
+  calories: CaloriesType
+}
+
 export type CaloriesType = {
   protein: number,
   fat: number,
