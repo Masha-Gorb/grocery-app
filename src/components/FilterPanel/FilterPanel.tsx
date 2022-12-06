@@ -1,7 +1,7 @@
 import React, {FC, ReactNode} from 'react';
 import FilterButton from "../FilterButton";
 import {ProductNames} from "../../types/products";
-import s from "../MainPage/MainPage.module.css";
+import s from "../ProductPage/ProductPage.module.css";
 
 
 type  Props = {

@@ -3,9 +3,9 @@ import s from './ProductCard.module.css'
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import {ProductType, ProductTypeWithM} from "../../types";
+import {ProductTypeWithM} from "../../types";
 // для примера
-const {REACT_APP_URL} = process.env
+// const {REACT_APP_URL} = process.env
 export const ProductCard = (props: ProductTypeWithM) => {
 
   const {img, calories, description, weightWithMeasure:{weight,measure}, price, title} = props
@@ -31,7 +31,8 @@ export const ProductCard = (props: ProductTypeWithM) => {
         <Box className={s.modalBox}>
           <div className={s.modalBoxContainer}>
             <h3>{title}</h3>
-            <img className={s.modalBoxImg} src={`${REACT_APP_URL}/${img}`} alt={'картинка продукта'}/>
+            {/*<img className={s.modalBoxImg} src={`${REACT_APP_URL}/${img}`} alt={'картинка продукта'}/>*/}
+            <img className={s.modalBoxImg} src={img} alt={'картинка продукта'}/>
             <br/>
             <div className={s.modalInfoBox}>
               <p>{'Описание: ' + description}</p>

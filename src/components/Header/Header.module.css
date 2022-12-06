@@ -3,11 +3,26 @@
     align-items: center;
     padding: 0 calc(50% - 590px);
     background: #fff;
+    font-family: Arial, serif;
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+    .container {
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+    }
 }
 
 .logo {
     text-align: left;
     margin-left: 40px;
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+    .logo {
+        display: none;
+    }
 }
 
 .input {
@@ -21,4 +36,27 @@
     font-weight: 400;
     font-size: 14px;
     color: #808080;
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+    .input {
+        width: 250px;
+        height: 20px;
+        margin-bottom: 5px;
+        margin-left: 55px;
+    }
+}
+
+.button {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    margin: 5px 5px 5px 50px;
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+    .button {
+        width: 30px;
+        margin-left: 20px;
+    }
 }
