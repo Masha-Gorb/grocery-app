@@ -60,3 +60,11 @@
         margin-left: 20px;
     }
 }
+
+.button:hover {
+    background-color: rgba(161, 230, 255, 0.48);
+}
+.button:hover::after {
+    content: attr(data-title);
+}
+

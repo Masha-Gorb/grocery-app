@@ -13,7 +13,7 @@ export const Header = () => {
              placeholder='Search'/>
       <div>
 
-        <button className={s.button}>
+        <button className={s.button} data-title=" ваша корзина">
           <Link to="/shoppingCart">🛒</Link>
         </button>
 
